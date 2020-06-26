@@ -1,0 +1,27 @@
+extends layout.pug
+block styles
+  link(rel="stylesheet", href="/css/login.css")
+block content
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+        
+      </div>
+
+      <!-- Login Form -->
+      <form action="/login" method="post">
+        <input type="text" id="user" class="fadeIn second" name="userName" placeholder="usuario">
+        <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+        <input type="submit" class="fadeIn fourth" value="Iniciar sesión">
+      </form>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Contactar al administrador</a>
+      </div>
+
+    </div>
+  </div>
