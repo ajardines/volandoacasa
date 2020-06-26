@@ -11,7 +11,7 @@
     "nodemon:dev": "nodemon --config",
     "dev": "concurrently \"npm run tsc:w\" \"npm run nodemon:dev\" ",
     "nodemon": "nodemon",
-    "start": "node dist/server.js"
+    "start": "concurrently \"npm run tsc:w\" \"node dist/server.js\" "
   },
   "author": "Armando A. Jardines",
   "license": "ISC",
