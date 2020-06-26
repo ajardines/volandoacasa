@@ -1,4 +1,4 @@
-import User, { IUser } from '../models/userSchema';
+import User from '../models/userSchema';
 import { Request, Response } from "express";
 import * as _ from "lodash";
 import * as bcrypt from "bcrypt";
@@ -24,7 +24,7 @@ export class Controller {
     user.password = request.body.password;
 
     User.find({userName: user.userName})
-      .then((userFound: IUser[]) => {
+      .then((userFound: any[]) => {
         if (_.isEmpty(userFound)) {
           return response.render('login', {error: "El usuario no existe!"});
         }
@@ -56,7 +56,7 @@ export class Controller {
   }
   public static getUsers(request: Request, response: Response) {
     User.find()
-      .then((users: IUser[]) => {
+      .then((users: any[]) => {
         response.render('users',
           {
             user: request.headers.user,
@@ -77,7 +77,7 @@ export class Controller {
     const userName = request.body.userName;
     let password = request.body.password;
     User.find({userName: userName})
-      .then((userFound: IUser[]) => {
+      .then((userFound: any[]) => {
         if (!_.isEmpty(userFound)) {
           return response.render('create-user', {error: "Ya existe un usuario con ese nombre de usuario",
             user: request.headers.user});
@@ -90,7 +90,7 @@ export class Controller {
             role: request.body.role,
           });
           user.save()
-            .then((userCreated: IUser) => {
+            .then((userCreated: any) => {
               return response.redirect('users')
             })
             .catch((error) => {
@@ -106,7 +106,7 @@ export class Controller {
   public static deleteUser(request: Request, response: Response) {
     const id = request.body.id;
     User.findOneAndDelete({_id: id})
-      .then((userdDleted: IUser) => {
+      .then((userdDleted: any) => {
         response.redirect('users');
       })
       .catch((error) => {
