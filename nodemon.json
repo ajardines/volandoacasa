@@ -1,0 +1,9 @@
+{
+  "verbose": false,
+  "legacyWatch": true,
+  "restartable": "rs",
+  "ext": "ts",
+  "ignore": ["**/*.spec.ts"],
+  "exec": ["ts-node server.ts"],
+  "watch": ["**/*.ts"]
+}
