@@ -1,4 +1,4 @@
-import User, { IUser } from "../models/userSchema";
+import User from "../models/userSchema";
 import * as _ from "lodash";
 import * as bcrypt from "bcrypt";
 
@@ -19,7 +19,7 @@ export class UserAdmin {
             role: role
           });
           user.save()
-            .then((userCreated: IUser) => {
+            .then((userCreated: any) => {
               console.log("Usuario " + userCreated.name + " creado!!")
             })
             .catch((error) => {

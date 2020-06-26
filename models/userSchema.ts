@@ -1,11 +1,12 @@
 import * as mongoose from "mongoose"
 
-export interface IUser extends mongoose.Document {
-  name: string;
-  userName: string;
-  password: string;
-  role: string;
-}
+// export interface IUser extends mongoose.Document {
+//   id: Object.;
+//   name: string;
+//   userName: string;
+//   password: string;
+//   role: string;
+// }
 
 const userSchema = new mongoose.Schema(
   {
